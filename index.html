@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        input {
+            width: 250px;
+            height: 33px;
+            border: 1px solid green;
+            border-radius: 10px;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        button {
+            width: 100px;
+            height: 35px;
+            border: 1px solid blue;
+            border-radius: 10px;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>TO-DO LIST</h2>
+
+    <input type="text" id="new_list_item">
+    <button onClick="addItem()">Add Item</button>
+
+    <script type="text/javascript">
+        var listItems = ['Basketball', 'Football'];
+    </script>
+
+    <script type="text/javascript">
+        function addItem() {
+            var tempItem = document.getElementById("new_list_item").value;
+            listItems.push(tempItem);
+            displayList(tempItem);
+            document.getElementById("new_list_item").value = '';
+        }
+    </script>
+
+    <div id="display">
+        <h3>Your Generating To-Do List Is Here : </h3>
+        <ul>
+            <script type="text/javascript">
+                listItems.forEach(displayList);
+
+                function displayList(item) {
+                    document.getElementById("display").innerHTML += "<li>" + item + "</li>"
+                }
+            </script>
+        </ul>
+    </div>
+
+</body>
+
+</html>
